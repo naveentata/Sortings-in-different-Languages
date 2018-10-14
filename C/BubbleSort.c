@@ -1,5 +1,5 @@
 #include <stdio.h>
-void BubbleSort(int (*tab)[], int length)
+void BubbleSort(int (*arr)[], int length)
 {
     int i, swap = 1;
     while (swap)
@@ -7,11 +7,11 @@ void BubbleSort(int (*tab)[], int length)
         swap = 0;
         for (i = 0; i < length - 1; i++)
         {
-            if ((*tab)[i] > (*tab)[i + 1])
+            if ((*arr)[i] > (*arr)[i + 1])
             {
-                int save = (*tab)[i];
-                (*tab)[i] = (*tab)[i + 1];
-                (*tab)[i + 1] = save;
+                int save = (*arr)[i];
+                (*arr)[i] = (*arr)[i + 1];
+                (*arr)[i + 1] = save;
                 swap = 1;
             }
         }
@@ -19,12 +19,13 @@ void BubbleSort(int (*tab)[], int length)
 }
 int main()
 {
-    int t[5] = {85, 22, 98, 36, 2};
-    BubbleSort(t, 5);
+    int arr[5] = {85, 22, 98, 36, 2};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    BubbleSort(arr, n);
     int i;
     for (i = 0; i < 5; i++)
     {
-        printf("%d\n", t[i]);
+        printf("%d\n", arr[i]);
     }
     return 0;
 }
