@@ -1,0 +1,31 @@
+import java.util.Scanner ;
+import java.util.Arrays;
+public class Main
+{
+    static void recursiveBubbleSort(int arr[], int n) {
+        if(n==1) {
+            return;
+        }
+        for(int i=0 ; i < n-1; i++) {
+            if(arr[i] > arr[i+1]) {
+                int temp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = temp;
+            }
+        }
+        recursiveBubbleSort(arr, n-1);
+    }
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	System.out.println("enter the length of the array: ");
+	int m = sc.nextInt();
+	int arr[] = new int[m];
+	System.out.println("enter your array of integers");
+	for(int j = 0 ; j < arr.length ; j++) {
+	    arr[j] = sc.nextInt();
+	}
+	recursiveBubbleSort(arr, arr.length);
+	System.out.print("sorted array is :");
+	System.out.println(Arrays.toString(arr));
+	}
+}
