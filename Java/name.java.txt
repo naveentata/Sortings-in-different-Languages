@@ -1,0 +1,55 @@
+Two-gram is an ordered pair (i.e. string of length two) of capital Latin letters. For example, "AZ", "AA", "ZA" — three distinct two-grams.
+You are given a string s consisting of n capital Latin letters. Your task is to find any two-gram contained in the given string as a substring (i.e. two consecutive characters of the string) maximal number of times. For example, for string s
+= "BBAABBBA" the answer is two-gram "BB", which contained in sthree times. In other words, find any most frequent two-gram.
+Note that occurrences of the two-gram can overlap with each other.
+
+SOLUTION:
+
+import java.io.*;
+import java.util.*;
+import java.math.*;
+public class name
+{
+      public static void main(String[]args)throws IOException
+      {
+            Scanner sc=new Scanner(System.in);
+            int n,max=0;
+            n=sc.nextInt();
+            HashMap<String,Integer> map=new HashMap<String,Integer>(); //creating a hashmap of string,integer
+            String s,ns="",value="",printt="";
+            s=sc.next();
+            int l=s.length();
+            for(int i=0;i<l-1;i++)
+            {
+            	ns=ns+s.charAt(i);
+            	ns=ns+s.charAt(i+1);
+            	if(map.containsKey(ns)) //if hashmap contains that particular key then condition will be true
+            	{
+            		int temp=(int)map.get(ns)+1;
+            	map.put(ns,temp);    //assigning key as ns and value as temp in hash map
+            	ns="";
+            	}
+            	else
+            	{
+            		map.put(ns,1);
+            		ns="";
+            	}
+            }
+            Map.Entry<String,Integer> maxEntry = null;
+for (Map.Entry <String,Integer>entry : map.entrySet())
+{
+    if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0)
+    {
+        maxEntry = entry;
+        printt=entry.getKey();
+    }}
+    System.out.println(printt);
+    printt="";
+}}
+           /* Map<String,Integer> maps = new TreeMap<String,Integer>(map); 
+            for(Map.Entry entry : maps.entrySet())
+        {
+            System.out.println(entry.getKey());
+            break;
+        }}}*/
+             
