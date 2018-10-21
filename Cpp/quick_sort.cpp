@@ -1,3 +1,4 @@
+//This is quick sort code
 #include <iostream>
 #include <functional>
 
