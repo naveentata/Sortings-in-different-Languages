@@ -1,0 +1,66 @@
+//Implementation of Cocktail Shaker Sort in C
+#include <stdio.h>
+#define SIZE 7
+
+void cocktailShakerSort(int arr[]); //takes an array, and sorts it
+void printArray(int arr[]);
+
+
+int main()
+{
+    int arr[] = {-1, -2, -3, -4, -5, -6, -7};
+
+    puts("Input array: ");
+    printArray(arr);
+
+    cocktailShakerSort(arr);
+
+    puts("Sorted array: ");
+    printArray(arr);
+
+    return 0;
+}
+
+void printArray(int arr[])
+{
+    for(int i = 0; i <SIZE; i++)
+        printf("%d%s", arr[i], ", ");
+
+    puts("");
+}
+
+ void cocktailShakerSort(int arr[])
+{
+    int begin = 0; //minimum index to be sorted to
+    int end = SIZE  - 1; //maximum index to be sorted to
+    int i = 0; //index being evaluated
+
+    while(begin <= end) //loops until all elements have been taken to the apropriate index
+    {
+        while(i < end) //brings greatest data to the end
+        {
+            if(arr[i] > arr[i+1]) //swaps elements
+            {
+                arr[i] = arr[i] + arr[i+1]; //x = x+y
+                arr[i+1] = arr[i] - arr[i+1];//y = x-y
+                arr[i] = arr[i] - arr[i+1]; //x = x - y
+            }
+            i++;
+        }
+
+        end--;
+
+        while(i > begin) //brings smallest data to the beggining
+        {
+            if(arr[i] < arr[i-1]) //swap
+            {
+                arr[i] = arr[i] + arr[i-1]; //x = x+y
+                arr[i-1] = arr[i] - arr[i-1];//y = x-y
+                arr[i] = arr[i] - arr[i-1]; //x = x - y
+            }
+            i--;
+        }
+
+        begin++;
+    }
+}
