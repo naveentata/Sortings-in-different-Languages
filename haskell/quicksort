@@ -1,0 +1,15 @@
+-- Author <github.com/monikanana>
+
+-- quicksort using list comprehension
+quicksort :: (Ord a) => [a] -> [a]  
+quicksort [] = []  
+quicksort (x:xs) = quicksort [a | a <- xs, a <= x] ++ [x] ++ quicksort [a | a <- xs, a > x]
+
+
+-- quicksort using filter function
+quicksort_ :: (Ord a) => [a] -> [a]    
+quicksort_ [] = []    
+quicksort_ (x:xs) =     
+    let smallerSorted = quicksort_ (filter (<=x) xs)  
+        biggerSorted = quicksort_ (filter (>x) xs)   
+    in  smallerSorted ++ [x] ++ biggerSorted  
