@@ -12,16 +12,14 @@ void main()
 	bubblesort(a,n);
 	void bubblesort(int a[],int n)
 	{
-		int swap;
+		//int swap;
 		for(int i=0;i<n;i++)
 		{
 			for(int j=0;j<n-i-1;j++)
 			{
 				if(a[j]>a[j+1])
 				{
-					swap=a[j];
-					a[j]=a[j+1];
-					a[j+1]=swap;
+					swap(a[j],a[j+1]);
 				}
 			}
 		}
@@ -31,4 +29,12 @@ void main()
 		printf("After Sorting");
 		printf("%d",&a[i]);
 	}
+}
+
+void swap(int x,int y)
+{
+	int temp;
+	temp = x;
+	x = y;
+	y = temp;
 }
