@@ -31,6 +31,15 @@ int * partition(int * first_, int * last_)
     return slow;
 }
 
+int max(int a,int b)
+{
+	if(a>=b)
+		return a;
+	else
+		return b;
+}
+
+
 void quick_sort(int *first_, int * last_)
 {
     if(first_ == last_) return;
