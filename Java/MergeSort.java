@@ -5,6 +5,7 @@ class MergeSort
     // Merges two subarrays of arr[]. 
     // First subarray is arr[l..m] 
     // Second subarray is arr[m+1..r] 
+    //While merging you should take care of the length of the lists.
     void merge(int arr[], int l, int m, int r) 
     { 
         // Find sizes of two subarrays to be merged 
@@ -101,5 +102,6 @@ class MergeSort
   
         System.out.println("\nSorted array"); 
         printArray(arr); 
+        //The code is elegantly written.
     } 
 } 
