@@ -1,4 +1,5 @@
 import java.io.*; 
+import java.util.Scanner;
   
 class BubbleSort  
 { 
@@ -41,10 +42,14 @@ class BubbleSort
     // Driver program 
     public static void main(String args[]) 
     { 
-        int arr[] = { 64, 34, 25, 12, 22, 11, 90 }; 
-        int n = arr.length; 
+        Scanner sc=new Scanner (System.in);
+        System.out.println("Enter the number of elements to be entered to the array: ");
+        int n=sc.nsextInt();
+        System.out.println("Enter "+n+" elements to be sorted to the array: ");
+        for(int i=0;i<n;i++)
+        int arr[i] =sc.nextInt(); 
         bubbleSort(arr, n); 
-        System.out.println("Sorted array: "); 
+        System.out.println("The Sorted array: "); 
         printArray(arr, n); 
     } 
 } 
